@@ -1,23 +1,25 @@
-import logo from './logo.svg';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <div className='LvlSection'>
+        <p id="currentLvl">17</p>
+        <svg id="LvlMeter" width="100%" height="20">
+          <rect width="100%" height="20" fill="#ccc" rx="2" ry="2"></rect>
+          <rect width="50%" height="20" fill="#0078bc" rx="2" ry="2"></rect>
+        </svg>  
+        <p id="nextLvl">18</p>
+        </div>
       </header>
+      <body className="App-body">
+        <p>lol</p>
+      </body>
+      <footer className="App-footer">
+
+      </footer>
     </div>
   );
 }
