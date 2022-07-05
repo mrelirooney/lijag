@@ -58,6 +58,16 @@ function App() {
           buttonSize="btn--large">300</Button>
           
         </div>
+        
+        <div className='descriptions'>
+          <p>Lorem Ipsum</p>
+          <Button onClick={() => updateCalc('200')} type="button" 
+          buttonStyle="btn--warning--outline"
+          buttonSize="btn--large">Yes</Button>
+          <Button onClick={() => updateCalc('300')} type="button" 
+          buttonStyle="btn--warning--outline"
+          buttonSize="btn--large">No</Button>
+        </div>
       </header>
       <body className="App-body">
         <p>lol</p>
