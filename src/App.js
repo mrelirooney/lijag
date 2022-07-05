@@ -41,9 +41,9 @@ function App() {
           <p id="nextLvl">18</p>
         </div>
         <div>
-          { result ? <span>({result})</span> : '' } 
+          { result ? <span>{result}</span> : '' } 
           &nbsp;
-          { calc || "0" }
+          {/* { calc || "0" } */}
         </div>
         <br></br>
         <div className='buttonSection'>
@@ -61,7 +61,7 @@ function App() {
         
         <div className='descriptions'>
           <p>Lorem Ipsum</p>
-          <Button onClick={() => updateCalc('200')} type="button" 
+          <Button onClick={() => updateCalc('+')} type="button" 
           buttonStyle="btn--warning--outline"
           buttonSize="btn--large">Yes</Button>
           <Button onClick={() => updateCalc('300')} type="button" 
