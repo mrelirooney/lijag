@@ -18,7 +18,7 @@ function App() {
       ops.includes(value) && ops.includes(calc.slice(-1)
       )
     ) {
-     result = updateCalc + result;
+     return;
     }
 
     setCalc(calc + value);
@@ -28,6 +28,16 @@ function App() {
       );
     }
 
+  }
+
+  const deleteLast = () => {
+    if (calc === ''){
+      return;
+    }
+
+    const value = calc.slice(0,-1);
+
+    setCalc(value);
   }
   return (
     <div className="App">
@@ -43,7 +53,7 @@ function App() {
         <div>
           { result ? <span>{result}</span> : '' } 
           &nbsp;
-          {/* { calc || "0" } */}
+           { calc || "0" } 
         </div>
         <br></br>
         <div className='buttonSection'>
@@ -64,7 +74,7 @@ function App() {
           <Button onClick={() => updateCalc('+')} type="button" 
           buttonStyle="btn--warning--outline"
           buttonSize="btn--large">Yes</Button>
-          <Button onClick={() => updateCalc('300')} type="button" 
+          <Button onClick={deleteLast} type="button" 
           buttonStyle="btn--warning--outline"
           buttonSize="btn--large">No</Button>
         </div>
