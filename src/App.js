@@ -12,7 +12,7 @@ function App() {
 
   const ops = ['/', '*', '+', '-', '.'];
 
-  const updateCalc = value => {
+  const updateCalc01 = value => {
     if (
       ops.includes(value) && calc === '' ||
       ops.includes(value) && ops.includes(calc.slice(-1)
@@ -20,7 +20,8 @@ function App() {
     ) {
      return;
     }
-
+  }
+  const updateCalc02 = value => {
     setCalc(calc + value);
 
     if (!ops.includes(value)) {
@@ -35,10 +36,15 @@ function App() {
       return;
     }
 
-    const value = calc.slice(0,-1);
+    const value = calc.slice(0,-100);
 
     setCalc(value);
   }
+
+  const calculate = () => {
+    setCalc(eval(calc).toString());
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -57,13 +63,13 @@ function App() {
         </div>
         <br></br>
         <div className='buttonSection'>
-          <Button onClick={() => updateCalc('100')} type="button"
+          <Button onClick={() => {updateCalc02('100');}} type="button"
           buttonStyle="btn--warning--outline"
           buttonSize="btn--large">100</Button>
-          <Button onClick={() => updateCalc('200')} type="button" 
+          <Button onClick={() => updateCalc02('200')} type="button" 
           buttonStyle="btn--warning--outline"
           buttonSize="btn--large">200</Button>
-          <Button onClick={() => updateCalc('300')} type="button" 
+          <Button onClick={() => updateCalc02('300')} type="button" 
           buttonStyle="btn--warning--outline"
           buttonSize="btn--large">300</Button>
           
@@ -71,12 +77,15 @@ function App() {
         
         <div className='descriptions'>
           <p>Lorem Ipsum</p>
-          <Button onClick={() => updateCalc('+')} type="button" 
+          <Button onClick={() => updateCalc01('+')} type="button" 
           buttonStyle="btn--warning--outline"
           buttonSize="btn--large">Yes</Button>
           <Button onClick={deleteLast} type="button" 
           buttonStyle="btn--warning--outline"
           buttonSize="btn--large">No</Button>
+          <Button onClick={calculate} type="button" 
+          buttonStyle="btn--warning--outline"
+          buttonSize="btn--large">Equals</Button>
         </div>
       </header>
       <body className="App-body">
