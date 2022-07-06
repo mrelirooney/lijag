@@ -9,6 +9,7 @@ import { useState } from 'react';
 function App() {
   const [calc, setCalc] = useState("");
   const [result, setResult] = useState("");
+  const [percentage, setPercent] = useState("");
 
   const ops = ['/', '*', '+', '-', '.'];
 
@@ -20,7 +21,15 @@ function App() {
     ) {
      return;
     }
- 
+    
+    if (
+      result.includes(value) && result === '' ||
+      result.includes(value) && result.includes(calc.slice(-1)
+      )
+    ) {
+     return;
+    }
+
     setCalc(calc + value);
 
     if (!ops.includes(value)) {
@@ -44,6 +53,9 @@ function App() {
     setCalc(eval(calc).toString());
   }
 
+  const expMeter = () => {
+
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -56,13 +68,13 @@ function App() {
           <p id="nextLvl">18</p>
         </div>
         <div>
-          { result ? <span>{result}</span> : '' } 
+          {/*{ result ? <span>{result}</span> : '' } */}
           &nbsp;
            { calc || "0" } 
         </div>
         <br></br>
         <div className='buttonSection'>
-          <Button onClick={() => {updateCalc('100');}} type="button"
+          <Button onClick={() => updateCalc('100')} type="button"
           buttonStyle="btn--warning--outline"
           buttonSize="btn--large">100</Button>
           <Button onClick={() => updateCalc('200')} type="button" 
